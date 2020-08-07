@@ -8,4 +8,5 @@ import { appRoutes } from './app.routes';
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+
+export class AppRoutingModule {}
