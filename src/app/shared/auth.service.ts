@@ -8,30 +8,29 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  login( User ) {
+  login(User) {
     return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`, User)
-    .pipe(
-      tap(this.setToken)
-    )
+      .pipe(
+        tap(this.setToken)
+      )
   }
 
-  private setToken (response) {
+  private setToken(response) {
     if (response) {
-      const expData = new Date( new Date().getTime() + +response.expiresIn * 1000)
+      const expData = new Date(new Date().getTime() + +response.expiresIn * 1000)
       localStorage.setItem('fb-token-exp', expData.toString())
       localStorage.setItem('fb-token', response.idToken)
     } else {
       localStorage.clear()
     }
-
   }
 
-  get token () {
+  get token() {
     const expDate = new Date(localStorage.getItem('fb-token-exp'))
-    if ( new Date > expDate ) {
-      this.logout()
+    if (new Date > expDate) {
+      //this.logout()
       return null
     }
     return localStorage.getItem('fb-token')

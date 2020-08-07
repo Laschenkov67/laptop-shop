@@ -12,13 +12,13 @@ import { OrdersPageComponent } from './orders-page/orders-page.component';
 
 export const adminRoutes: Routes = [
     {
-      path: '', component: AdminLayoutComponent, children: [
-          {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
-          {path: 'login', component: LoginPageComponent},
-          {path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard]},
-          {path: 'add', component: AddPageComponent, canActivate: [AuthGuard]},
-          {path: 'orders', component: OrdersPageComponent, canActivate: [AuthGuard]},
-          {path: 'product/:id/edit', component: EditPageComponent, canActivate: [AuthGuard]},
-      ]
-  }
-  ];
+        path: '', component: AdminLayoutComponent, children: [
+            { path: '', redirectTo: '/admin/login', pathMatch: 'full' },
+            { path: 'login', component: LoginPageComponent },
+            { path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard] },
+            { path: 'add', component: AddPageComponent, canActivate: [AuthGuard] },
+            { path: 'orders', component: OrdersPageComponent, canActivate: [AuthGuard] },
+            { path: 'product/:id/edit', component: EditPageComponent, canActivate: [AuthGuard] },
+        ]
+    }
+];

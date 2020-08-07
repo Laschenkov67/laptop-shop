@@ -12,6 +12,7 @@ import { MainLayoutComponent } from './shared/main-layout/main-layout.component'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/auth.interseptor';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -20,16 +21,16 @@ import { AuthInterceptor } from './shared/auth.interseptor';
     MainPageComponent,
     ProductPageComponent,
     CartPageComponent,
-    ProductPageComponent,
+    ProductComponent,
     SortingPipe,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [
     {
