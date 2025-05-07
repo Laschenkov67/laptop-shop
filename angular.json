@@ -117,7 +117,6 @@
       }
     }
   },
-  "defaultProject": "laptop-shop",
   "cli": {
     "analytics": false
   }

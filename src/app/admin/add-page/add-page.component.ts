@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { ProductService } from 'src/app/shared/product.service';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AddPageComponent implements OnInit {
 
-  form: FormGroup
+  form: UntypedFormGroup
   submitted = false
 
   constructor(
@@ -19,12 +19,12 @@ export class AddPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.form = new FormGroup({
-      type: new FormControl(null, Validators.required),
-      title: new FormControl(null, Validators.required),
-      photo: new FormControl(null, Validators.required),
-      info: new FormControl(null, Validators.required),
-      price: new FormControl(null, Validators.required),
+    this.form = new UntypedFormGroup({
+      type: new UntypedFormControl(null, Validators.required),
+      title: new UntypedFormControl(null, Validators.required),
+      photo: new UntypedFormControl(null, Validators.required),
+      info: new UntypedFormControl(null, Validators.required),
+      price: new UntypedFormControl(null, Validators.required),
     })
   }
 

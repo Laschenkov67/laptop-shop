@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../shared/product.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { OrderService } from '../shared/order.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class CartPageComponent implements OnInit {
   totalPrice = 0
   added = ''
 
-  form : FormGroup
+  form : UntypedFormGroup
   submitted = false
 
   constructor(
@@ -29,11 +29,11 @@ export class CartPageComponent implements OnInit {
       
     }
 
-    this.form = new FormGroup({
-      name: new FormControl(null, Validators.required),
-      phone: new FormControl(null, Validators.required),
-      address: new FormControl(null, Validators.required),
-      payment: new FormControl('Cash'),
+    this.form = new UntypedFormGroup({
+      name: new UntypedFormControl(null, Validators.required),
+      phone: new UntypedFormControl(null, Validators.required),
+      address: new UntypedFormControl(null, Validators.required),
+      payment: new UntypedFormControl('Cash'),
     })
   }
 

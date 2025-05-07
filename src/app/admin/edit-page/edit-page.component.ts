@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/shared/product.service';
 import { switchMap } from 'rxjs/operators';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { Product } from 'src/app/shared/interfaces';
 
 @Component({
@@ -12,7 +12,7 @@ import { Product } from 'src/app/shared/interfaces';
 })
 export class EditPageComponent implements OnInit {
 
-  form : FormGroup
+  form : UntypedFormGroup
   product: Product
   submitted = false
 
@@ -29,12 +29,12 @@ export class EditPageComponent implements OnInit {
       })
     ).subscribe(product => {
       this.product = product
-      this.form = new FormGroup({
-        type: new FormControl(this.product.type, Validators.required),
-      title: new FormControl(this.product.title, Validators.required),
-      photo: new FormControl(this.product.photo, Validators.required),
-      info: new FormControl(this.product.info, Validators.required),
-      price: new FormControl(this.product.price, Validators.required),
+      this.form = new UntypedFormGroup({
+        type: new UntypedFormControl(this.product.type, Validators.required),
+      title: new UntypedFormControl(this.product.title, Validators.required),
+      photo: new UntypedFormControl(this.product.photo, Validators.required),
+      info: new UntypedFormControl(this.product.info, Validators.required),
+      price: new UntypedFormControl(this.product.price, Validators.required),
       })
 
     })
